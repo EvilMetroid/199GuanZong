@@ -14,9 +14,9 @@
      单调递增防误判;56/57 写作题按 "56. 论证有效性分析" 锚点。
   5. 中文断行段落缝合(公式碎片行保持独立),输出统一结构 md。
 
-用法:
-    python3 build_answer_md.py            # 2009-2025 全量
-    python3 build_answer_md.py 2009 2024  # 指定年份
+用法(仓库根目录执行,脚本自身按 __file__ 定位仓库根,任意目录亦可):
+    python3 scripts/build_answer_md.py            # 2009-2025 全量
+    python3 scripts/build_answer_md.py 2009 2024  # 指定年份
 
 护栏:
     - 逐年 md 已存在时默认拒绝覆盖(2009-2025 已逐页 VLM 校核,
@@ -38,7 +38,7 @@ from pathlib import Path
 
 import fitz
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]          # 仓库根目录
 ANSWER_DIR = ROOT / "答案部分"
 OUTPUT_ROOT = ROOT / "199管综答案_Markdown题库"
 OCR_CACHE = ROOT / "ocr_cache"

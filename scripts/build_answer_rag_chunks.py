@@ -8,9 +8,9 @@
 同题多条切分按 part 升序拼接即得解析全文。答案解析 md 由 build_answer_md.py
 生成且逐年结构统一(2026 年为人工整理),以 md 为唯一内容源。
 
-用法:
-    python3 build_answer_rag_chunks.py            # 全量重建
-    python3 build_answer_rag_chunks.py 2013 2018  # 只重建指定年份
+用法(仓库根目录执行,脚本自身按 __file__ 定位仓库根,任意目录亦可):
+    python3 scripts/build_answer_rag_chunks.py            # 全量重建
+    python3 scripts/build_answer_rag_chunks.py 2013 2018  # 只重建指定年份
 
 指定年份时,汇总库仍覆盖全部年份:指定年份从 md 重建,其余年份从各自
 的逐年 jsonl 合并,不会因局部重建而丢失其他年份。指定的年份在题库中
@@ -44,7 +44,8 @@ import re
 import sys
 from pathlib import Path
 
-OUTPUT_ROOT = Path("199管综答案_Markdown题库")
+ROOT = Path(__file__).resolve().parents[1]          # 仓库根目录
+OUTPUT_ROOT = ROOT / "199管综答案_Markdown题库"
 TOTAL_JSONL_NAME = "199管综历年真题_全量RAG切分库_答案.jsonl"
 
 Q_HEAD = re.compile(r"^### 第 (\d+) 题")
@@ -239,7 +240,7 @@ def main():
         text = "".join(json.dumps(c, ensure_ascii=False) + "\n"
                        for c in all_chunks)
         atomic_write(total_path, text)
-        mirror = Path(TOTAL_JSONL_NAME)
+        mirror = ROOT / TOTAL_JSONL_NAME
         atomic_write(mirror, text)
 
     print(f"\n共 {len(all_chunks)} 条切分({len(got_years)} 个年份)")

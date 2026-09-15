@@ -50,9 +50,9 @@
      挡),末端再吸附紧凑标记(图形顶点/顶点标签),与深色带交替
      迭代到不动点。
 
-用法:
-    python3 reslice_images.py            # 2009-2026 全量
-    python3 reslice_images.py 2013 2022  # 指定年份
+用法(仓库根目录执行,脚本自身按 __file__ 定位仓库根,任意目录亦可):
+    python3 scripts/reslice_images.py            # 2009-2026 全量
+    python3 scripts/reslice_images.py 2013 2022  # 指定年份
 
 注意:运行后请重跑 build_rag_chunks_from_md.py 校验(图片行会被其忽略,
 jsonl schema 不变,预期仍为 1026 条零告警)。
@@ -66,7 +66,7 @@ from pathlib import Path
 
 import fitz
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]          # 仓库根目录
 OUTPUT_ROOT = ROOT / "199管综真题_Markdown题库"
 OCR_CACHE = ROOT / "ocr_cache"
 PDF_DIR = ROOT / "真题部分"

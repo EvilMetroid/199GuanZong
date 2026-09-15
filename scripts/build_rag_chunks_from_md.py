@@ -9,9 +9,9 @@
 2009-2026 各年试卷 md 已逐题人工/多模态校核,因此以 md 为唯一内容源
 重建切分库,PDF 只负责提供原卷切片图(图中路径直接取自 md)。
 
-用法:
-    python3 build_rag_chunks_from_md.py            # 全量重建
-    python3 build_rag_chunks_from_md.py 2013 2018  # 只重建指定年份
+用法(仓库根目录执行,脚本自身按 __file__ 定位仓库根,任意目录亦可):
+    python3 scripts/build_rag_chunks_from_md.py            # 全量重建
+    python3 scripts/build_rag_chunks_from_md.py 2013 2018  # 只重建指定年份
 
 指定年份时,汇总库仍覆盖全部年份:指定年份从 md 重建,其余年份从各自
 的逐年 jsonl 合并,不会因局部重建而丢失其他年份。指定的年份在题库中
@@ -35,7 +35,8 @@ import re
 import sys
 from pathlib import Path
 
-OUTPUT_ROOT = Path("199管综真题_Markdown题库")
+ROOT = Path(__file__).resolve().parents[1]          # 仓库根目录
+OUTPUT_ROOT = ROOT / "199管综真题_Markdown题库"
 TOTAL_JSONL_NAME = "199管综历年真题_全量RAG切分库.jsonl"
 
 Q_HEAD = re.compile(r"^### 第 (\d+) 题")
@@ -307,7 +308,7 @@ def main():
         text = "".join(json.dumps(c, ensure_ascii=False) + "\n"
                        for c in all_chunks)
         atomic_write(total_path, text)
-        mirror = Path(TOTAL_JSONL_NAME)
+        mirror = ROOT / TOTAL_JSONL_NAME
         atomic_write(mirror, text)
 
     print(f"\n共 {len(all_chunks)} 条切分({len(got_years)} 个年份)")

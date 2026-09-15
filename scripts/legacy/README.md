@@ -1,8 +1,9 @@
-# legacy/
+# scripts/legacy/
 
-题库构建早期(2024 年前后)的一次性脚本,全部已被根目录核心脚本
-(`build_rag_chunks_from_md.py` / `build_answer_md.py` / `build_answer_rag_chunks.py` /
-`reslice_images.py`)取代,**不再维护,不要依赖**。保留仅用于追溯当年的构建过程。
+题库构建早期(2024 年前后)的一次性脚本,全部已被同级核心脚本
+(`scripts/build_rag_chunks_from_md.py` / `scripts/build_answer_md.py` /
+`scripts/build_answer_rag_chunks.py` / `scripts/reslice_images.py`)取代,
+**不再维护,不要依赖**。保留仅用于追溯当年的构建过程。
 
 按用途分组:
 
@@ -23,4 +24,4 @@
 
 注意:其中部分脚本互相引用(如 `group_ocr_by_crops.py` 引用
 `fix_all_crops_2009.py`)且读写相对路径,只在仓库根目录上下文 + 当年的
-中间产物齐全时才有意义。
+中间产物齐全时才有意义(本目录整体移入 scripts/ 后已不具备运行条件)。

@@ -28,13 +28,15 @@
   199管综历年真题_全量RAG切分库_答案.jsonl  2009–2026 年 1069 条汇总
 199管综历年真题_全量RAG切分库_答案.jsonl  答案汇总库的根目录镜像
 ocr_cache/                         RapidOCR 行框缓存(真题 _ocr_lines / 答案 _answer_ocr_lines,可删)
-build_rag_chunks_from_md.py        真题 md → RAG 切分库(当前唯一生成入口)
-build_answer_md.py                 答案解析 PDF → 逐年 md(全量 RapidOCR,幂等)
-build_answer_rag_chunks.py         答案解析 md → RAG 切分库
-reslice_images.py                  原卷切片图重建 + 共享题干图片行(幂等)
-199管综真题PDF转Markdown与切分优化实战指南.md  题库构建与切片技术总结
-199管综真题图形纯文本化与矢量绘制实战指南.md    图形纯文本化与 SVG 绘制实战指南
-legacy/                            83 个一次性构建/调试脚本(见 legacy/README.md)
+scripts/                           构建脚本(仓库根目录执行;脚本按 __file__ 定位根,任意目录亦可)
+  build_rag_chunks_from_md.py        真题 md → RAG 切分库(当前唯一生成入口)
+  build_answer_md.py                 答案解析 PDF → 逐年 md(全量 RapidOCR,幂等)
+  build_answer_rag_chunks.py         答案解析 md → RAG 切分库
+  reslice_images.py                  原卷切片图重建 + 共享题干图片行(幂等)
+  legacy/                            83 个一次性构建/调试脚本(见其 README.md)
+docs/                              两份实战指南
+  199管综真题PDF转Markdown与切分优化实战指南.md  题库构建与切片技术总结
+  199管综真题图形纯文本化与矢量绘制实战指南.md    图形纯文本化与 SVG 绘制实战指南
 ```
 
 ## 当前工作流
@@ -44,8 +46,8 @@ legacy/                            83 个一次性构建/调试脚本(见 legacy
 1. **重建 RAG 切分库**(md 有改动后跑):
 
    ```bash
-   python3 build_rag_chunks_from_md.py            # 全量
-   python3 build_rag_chunks_from_md.py 2024       # 指定年份
+   python3 scripts/build_rag_chunks_from_md.py            # 全量
+   python3 scripts/build_rag_chunks_from_md.py 2024       # 指定年份
    ```
 
    校验标准:18 年 × 57 题 = 1026 条、零告警(题干为空/选项不齐/缺图会告警
@@ -57,8 +59,8 @@ legacy/                            83 个一次性构建/调试脚本(见 legacy
 2. **重建答案解析 md**(答案部分 PDF 有变时跑;RapidOCR 全量,带缓存、幂等):
 
    ```bash
-   python3 build_answer_md.py             # 2009–2025 全量
-   python3 build_answer_md.py 2016 2024   # 指定年份
+   python3 scripts/build_answer_md.py             # 2009–2025 全量
+   python3 scripts/build_answer_md.py 2016 2024   # 指定年份
    ```
 
    4 种版式(2009–2021 文都"速查+详解"、2022 精简版、2023 清晰扫描、
@@ -77,8 +79,8 @@ legacy/                            83 个一次性构建/调试脚本(见 legacy
 3. **重建答案 RAG 切分库**(答案解析 md 有改动后跑):
 
    ```bash
-   python3 build_answer_rag_chunks.py            # 全量
-   python3 build_answer_rag_chunks.py 2013 2018  # 指定年份
+   python3 scripts/build_answer_rag_chunks.py            # 全量
+   python3 scripts/build_answer_rag_chunks.py 2013 2018  # 指定年份
    ```
 
    字段:year / question_no / category / answer / part / parts / part_label /
@@ -98,8 +100,8 @@ legacy/                            83 个一次性构建/调试脚本(见 legacy
 4. **重建原卷切片图**(需要改图时跑,幂等):
 
    ```bash
-   python3 reslice_images.py            # 2009–2026 全量
-   python3 reslice_images.py 2013 2022  # 指定年份
+   python3 scripts/reslice_images.py            # 2009–2026 全量
+   python3 scripts/reslice_images.py 2013 2022  # 指定年份
    ```
 
    行级题号锚点 + 归属划分,文本层优先、RapidOCR 补缺(缓存 ocr_cache/),
@@ -111,7 +113,7 @@ legacy/                            83 个一次性构建/调试脚本(见 legacy
 
 ## 注意
 
-- **不要重跑 `legacy/batch_optimize_all_199.py`**。它是 md 最初生成时的批量流水线,
+- **不要重跑 `scripts/legacy/batch_optimize_all_199.py`**。它是 md 最初生成时的批量流水线,
   输出会覆盖已校核的 md,仅留作历史参考。
 - 答案 md 为 RapidOCR 自动提取(答案 PDF 内嵌文本层同样是低质 OCR),
   2009–2025 已由 VLM 逐页对照原 PDF(200–400dpi 渲染)校核,OCR 错误
@@ -119,7 +121,7 @@ legacy/                            83 个一次性构建/调试脚本(见 legacy
   原文并记入校核报告的存疑清单,使用仍请对照原 PDF 核对。
   2009–2026 的公式均已转换为 `$...$` LaTeX 行内式(2026 为人工整理,
   其余为 OCR 原文逐字保留、仅数学符号 LaTeX 化)。
-- **不要重跑 `build_answer_md.py`**:它会用 OCR 原文整体覆盖答案 md,
+- **不要重跑 `scripts/build_answer_md.py`**:它会用 OCR 原文整体覆盖答案 md,
   冲掉已就地修正的 VLM 校核结果与 LaTeX 化;脚本现已加护栏——逐年 md
   已存在时拒绝覆盖,确需重建(仅当答案 PDF 本身更换)加 `--force`,
   且重跑后需重新逐页校核与重新 LaTeX 化。
@@ -134,12 +136,12 @@ legacy/                            83 个一次性构建/调试脚本(见 legacy
 ## 依赖
 
 - Python 3 + `PyMuPDF`(fitz)
-- `rapidocr_onnxruntime`(仅 reslice_images.py 遇到纯扫描/乱码年份时需要)
-- `Pillow`(reslice_images.py 跨页拼接用)
+- `rapidocr_onnxruntime`(仅 scripts/reslice_images.py 遇到纯扫描/乱码年份时需要)
+- `Pillow`(scripts/reslice_images.py 跨页拼接用)
 
 安装:`pip install PyMuPDF rapidocr_onnxruntime Pillow`
 
 ## 详细方法与实战指南
 
-- **题库构建与 PDF 切片优化**：详见 [199管综真题PDF转Markdown与切分优化实战指南.md](199管综真题PDF转Markdown与切分优化实战指南.md)。
-- **图形纯文本化与矢量绘制（SVG / Unicode / Markdown 表格）**：详见 [199管综真题图形纯文本化与矢量绘制实战指南.md](199管综真题图形纯文本化与矢量绘制实战指南.md)。
+- **题库构建与 PDF 切片优化**：详见 [199管综真题PDF转Markdown与切分优化实战指南.md](docs/199管综真题PDF转Markdown与切分优化实战指南.md)。
+- **图形纯文本化与矢量绘制（SVG / Unicode / Markdown 表格）**：详见 [199管综真题图形纯文本化与矢量绘制实战指南.md](docs/199管综真题图形纯文本化与矢量绘制实战指南.md)。
