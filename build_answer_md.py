@@ -18,12 +18,20 @@
     python3 build_answer_md.py            # 2009-2025 全量
     python3 build_answer_md.py 2009 2024  # 指定年份
 
+护栏:
+    - 逐年 md 已存在时默认拒绝覆盖(2009-2025 已逐页 VLM 校核,
+      重跑会用 OCR 原文冲掉校核结果),确需重建时加 --force;
+    - 2026 年无独立答案解析 PDF(其解析为人工整理),本脚本不处理,
+      显式指定 2026 会因缺 PDF 报错;
+    - 输出为原子写(临时文件 + rename),不会留下半截 md。
+
 输出: 199管综答案_Markdown题库/{year}年/{year}年199管综真题解析.md
 校验: 每年 57 题锚点缺失 / 答案字母缺失 / 与速查不一致 / 内容过短 均告警,
       有缺失则非 0 退出。公式为 OCR 原文(不做 LaTeX 转换),核对对照原 PDF。
 """
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -213,10 +221,17 @@ def join_lines(rows):
     return paras
 
 
-def md_year(year):
+def md_year(year, force=False):
     pdf = ANSWER_DIR / f"{year}年199管综真题解析.pdf"
     if not pdf.exists():
-        print(f"[✘] {year}: 缺 PDF {pdf.name}")
+        print(f"[✘] {year}: 缺 PDF {pdf.name}"
+              f"{'(2026 年解析为人工整理,不在本脚本范围内)' if year == 2026 else ''}")
+        return 1
+    out_dir = OUTPUT_ROOT / f"{year}年"
+    md_path = out_dir / f"{year}年199管综真题解析.md"
+    if md_path.exists() and not force:
+        print(f"[✘] {year}: {md_path.name} 已存在且已逐页校核,拒绝覆盖;"
+              f"确需重建请加 --force(重建后必须重新逐页校核)")
         return 1
     doc = fitz.open(str(pdf))
     lines = drop_footers(ocr_year(doc, year), doc)
@@ -287,10 +302,10 @@ def md_year(year):
                 continue
             out += paras + [""]
 
-    out_dir = OUTPUT_ROOT / f"{year}年"
     out_dir.mkdir(parents=True, exist_ok=True)
-    md_path = out_dir / f"{year}年199管综真题解析.md"
-    md_path.write_text("\n".join(out).rstrip() + "\n", encoding="utf-8")
+    tmp = md_path.with_name(md_path.name + ".tmp")
+    tmp.write_text("\n".join(out).rstrip() + "\n", encoding="utf-8")
+    os.replace(tmp, md_path)
 
     short = [q for q in range(1, 58) if q in qmap
              and sum(len(s) for _, s in qmap[q][1]) < 8]
@@ -306,11 +321,17 @@ def md_year(year):
 
 
 def main():
-    only = [int(x) for x in sys.argv[1:]]
+    force = "--force" in sys.argv
+    args = [a for a in sys.argv[1:] if a != "--force"]
+    bad = [a for a in args if not a.isdigit()]
+    if bad:
+        print(f"[✘] 非法年份参数: {bad}(应为 4 位年份数字)")
+        sys.exit(1)
+    only = [int(a) for a in args]
     years = only or list(range(2009, 2026))
     problems = 0
     for year in years:
-        problems += md_year(year)
+        problems += md_year(year, force=force)
     print(f"\n{'=' * 50}")
     if problems:
         print(f"⚠ 共 {problems} 处题号缺失,见上方明细,请人工复核")

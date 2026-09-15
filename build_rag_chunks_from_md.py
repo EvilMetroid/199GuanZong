@@ -25,6 +25,7 @@
 校验:每年必须恰好 57 个 chunk;1-15/26-55 题必须有 A-E 五项;
 16-25 题 stem 必须含条件(1)(2)(全角或半角);题干为空或选项不齐会打印告警;
 汇总库必须覆盖题库内全部年份,缺年份非 0 退出。
+md 中的 SVG 重绘图块(2024/2025/2026 补图)在解析时剔除,不进入 chunk 文本。
 """
 
 import json
@@ -43,6 +44,24 @@ STEM_HEAD = re.compile(r"^### (\d+)[~～](\d+) 题基于以下题干")
 OPT = re.compile(r"^- \*\*([A-E])\*\*．(.*)$")
 IMG = re.compile(r"^!\[[^\]]*\]\((images/[^)]+)\)$")
 HEADER = re.compile(r"^(## |### )")
+SVG_OPEN = re.compile(r"^\s*<svg\b")
+SVG_CLOSE = "</svg>"
+
+
+def drop_svg(lines):
+    """md 中的 SVG 重绘图块(2024/2025/2026 补图)是给人看的插图,不进 chunk 文本。"""
+    out, in_svg = [], False
+    for ln in lines:
+        if in_svg:
+            if SVG_CLOSE in ln:
+                in_svg = False
+            continue
+        if SVG_OPEN.match(ln):
+            if SVG_CLOSE not in ln:
+                in_svg = True
+            continue
+        out.append(ln)
+    return out
 
 
 def parse_year_md(md_path: Path):
@@ -80,7 +99,8 @@ def parse_year_md(md_path: Path):
         if kind == "stem":
             m = STEM_HEAD.match(lines[i])
             body = [l[2:] if l.startswith("> ") else l
-                    for l in lines[i + 1:end] if l.strip() and l.strip() != "---"]
+                    for l in drop_svg(lines[i + 1:end])
+                    if l.strip() and l.strip() != "---"]
             body = [l for l in body if not IMG.match(l)]
             shared[qnum] = (int(m.group(2)), "\n".join(body).strip())
         else:
@@ -131,7 +151,7 @@ def parse_year_md(md_path: Path):
         img_rel = None
         opts = {}
         body_lines = []
-        for ln in block:
+        for ln in drop_svg(block):
             mi = IMG.match(ln)
             if mi:
                 img_rel = mi.group(1)
