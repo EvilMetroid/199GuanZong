@@ -31,8 +31,11 @@ scripts/                           构建脚本(仓库根目录执行;脚本按 
   build_answer_md.py                 答案解析 PDF → 逐年 md(全量 RapidOCR,幂等)
   build_answer_rag_chunks.py         答案解析 md → RAG 切分库
   reslice_images.py                  原卷切片图重建 + 共享题干图片行(幂等)
-  legacy/                            83 个一次性构建/调试脚本(见其 README.md)
-docs/                              两份实战指南
+docs/                              项目文档与实战指南
+  199_management_exam_comprehensive_guide.md    199 管综历年真题全景复习指南
+  199_exam_points_trends_and_tricks.md          考点考频、演进趋势与高分实战技巧报告
+  199_math_core_formulas_and_theorems.md        数学高频考点、核心公式与定理速查宝典
+  analytical_reasoning_mastery_guide.md         综合分析推理全解剖与极速通关专项宝典
   199管综真题PDF转Markdown与切分优化实战指南.md  题库构建与切片技术总结
   199管综真题图形纯文本化与矢量绘制实战指南.md    图形纯文本化与 SVG 绘制实战指南
 ```
@@ -141,5 +144,12 @@ docs/                              两份实战指南
 
 ## 详细方法与实战指南
 
-- **题库构建与 PDF 切片优化**：详见 [199管综真题PDF转Markdown与切分优化实战指南.md](docs/199管综真题PDF转Markdown与切分优化实战指南.md)。
-- **图形纯文本化与矢量绘制（SVG / Unicode / Markdown 表格）**：详见 [199管综真题图形纯文本化与矢量绘制实战指南.md](docs/199管综真题图形纯文本化与矢量绘制实战指南.md)。
+### 1. 备考与解题专项指南
+- **全景复习指南**：[199_management_exam_comprehensive_guide.md](docs/199_management_exam_comprehensive_guide.md)（三科知识体系、题型演进、思维导图与备考规划）
+- **考点考频与趋势报告**：[199_exam_points_trends_and_tricks.md](docs/199_exam_points_trends_and_tricks.md)（18 年 1026 题量化统计、高分秒杀技巧与避坑全景）
+- **数学公式与定理速查宝典**：[199_math_core_formulas_and_theorems.md](docs/199_math_core_formulas_and_theorems.md)（八大核心模块高频考点与必背公式）
+- **综合分析推理通关专项**：[analytical_reasoning_mastery_guide.md](docs/analytical_reasoning_mastery_guide.md)（大题组、信息提取、六大经典模型与解题范式）
+
+### 2. 工程规范与技术总结
+- **题库构建与 PDF 切片优化**：[199管综真题PDF转Markdown与切分优化实战指南.md](docs/199管综真题PDF转Markdown与切分优化实战指南.md)
+- **图形纯文本化与矢量绘制（SVG / Unicode / Markdown 表格）**：[199管综真题图形纯文本化与矢量绘制实战指南.md](docs/199管综真题图形纯文本化与矢量绘制实战指南.md)
