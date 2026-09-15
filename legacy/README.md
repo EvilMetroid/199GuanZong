@@ -1,11 +1,13 @@
 # legacy/
 
-题库构建早期(2024 年前后)的一次性脚本,全部已被根目录三个核心脚本
-(`batch_optimize_all_199.py` / `build_rag_chunks_from_md.py` / `reslice_images.py`)
-取代,**不再维护,不要依赖**。保留仅用于追溯当年的构建过程。
+题库构建早期(2024 年前后)的一次性脚本,全部已被根目录核心脚本
+(`build_rag_chunks_from_md.py` / `build_answer_md.py` / `build_answer_rag_chunks.py` /
+`reslice_images.py`)取代,**不再维护,不要依赖**。保留仅用于追溯当年的构建过程。
 
 按用途分组:
 
+- `batch_optimize_all_199.py` — 早期的批量 PDF→md 生成流水线,各年 md 即由它
+  首版生成;重跑会覆盖已校核的 md,**切勿重跑**。
 - `extract_199_markdown.py` — 最早的 PDF→md 单卷提取器(批量化前的原型)。
 - `build_*_flawless.py` / `build_full_2009.py` / `build_2009_content.py` —
   各年 md 逐题重写/修正脚本(每年一个,对应"flawless"修订轮)。

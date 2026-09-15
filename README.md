@@ -25,12 +25,11 @@
   199管综历年真题_全量RAG切分库_答案.jsonl  2009–2026 年 1026 条汇总
 199管综历年真题_全量RAG切分库_答案.jsonl  答案汇总库的根目录镜像
 ocr_cache/                         RapidOCR 行框缓存(真题 _ocr_lines / 答案 _answer_ocr_lines,可删)
-batch_optimize_all_199.py          早期的批量 PDF→md 生成流水线(见下方警示)
 build_rag_chunks_from_md.py        真题 md → RAG 切分库(当前唯一生成入口)
 build_answer_md.py                 答案解析 PDF → 逐年 md(全量 RapidOCR,幂等)
 build_answer_rag_chunks.py         答案解析 md → RAG 切分库
 reslice_images.py                  原卷切片图重建 + 共享题干图片行(幂等)
-legacy/                            82 个一次性构建/调试脚本(见 legacy/README.md)
+legacy/                            83 个一次性构建/调试脚本(见 legacy/README.md)
 ```
 
 ## 当前工作流
@@ -91,7 +90,7 @@ legacy/                            82 个一次性构建/调试脚本(见 legacy
 
 ## 注意
 
-- **不要重跑 `batch_optimize_all_199.py`**。它是 md 最初生成时的批量流水线,
+- **不要重跑 `legacy/batch_optimize_all_199.py`**。它是 md 最初生成时的批量流水线,
   输出会覆盖已校核的 md,仅留作历史参考。
 - 答案 md 为 RapidOCR 自动提取(答案 PDF 内嵌文本层同样是低质 OCR),
   2009–2025 已由 VLM 逐页对照原 PDF(200–400dpi 渲染)校核,OCR 错误
