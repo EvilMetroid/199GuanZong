@@ -20,7 +20,6 @@
 输出:
     199管综答案_Markdown题库/{year}年/{year}年199真题解析_chunks.jsonl   (每年)
     199管综答案_Markdown题库/199管综历年真题_全量RAG切分库_答案.jsonl    (汇总)
-    ./199管综历年真题_全量RAG切分库_答案.jsonl                            (仓库根目录镜像)
 
 chunk 字段:year / question_no / category / answer / part / parts / part_label / explanation
     category 与真题库一致:1-15 问题求解、16-25 条件充分性判断、
@@ -240,13 +239,10 @@ def main():
         text = "".join(json.dumps(c, ensure_ascii=False) + "\n"
                        for c in all_chunks)
         atomic_write(total_path, text)
-        mirror = ROOT / TOTAL_JSONL_NAME
-        atomic_write(mirror, text)
 
     print(f"\n共 {len(all_chunks)} 条切分({len(got_years)} 个年份)")
     if not n_problems:
         print(f"汇总库: {total_path}")
-        print(f"根目录镜像: {mirror}")
     if n_problems:
         print(f"⚠ 有 {n_problems} 处问题,见上方明细,请人工复核对应题目")
         sys.exit(1)

@@ -15,7 +15,6 @@
     {year}年199真题_chunks.jsonl   该年 57 条 RAG 切分
     images/                        {year}_q01..q57.png + {year}_shared_{a}_{b}.png
   199管综历年真题_全量RAG切分库.jsonl  18 年共 1026 条汇总
-199管综历年真题_全量RAG切分库.jsonl  汇总库的根目录镜像
 199管综答案_Markdown题库/
   {year}年/
     {year}年199管综真题解析.md        答案解析(OCR 提取 + VLM 逐页对照原 PDF 校核,
@@ -26,7 +25,6 @@
     {year}年199真题解析_chunks.jsonl  该年答案 RAG 切分(55 条主切分 +
                                        写作题板块子切分,共 57~64 条)
   199管综历年真题_全量RAG切分库_答案.jsonl  2009–2026 年 1069 条汇总
-199管综历年真题_全量RAG切分库_答案.jsonl  答案汇总库的根目录镜像
 ocr_cache/                         RapidOCR 行框缓存(真题 _ocr_lines / 答案 _answer_ocr_lines,可删)
 scripts/                           构建脚本(仓库根目录执行;脚本按 __file__ 定位根,任意目录亦可)
   build_rag_chunks_from_md.py        真题 md → RAG 切分库(当前唯一生成入口)
