@@ -15,7 +15,8 @@
 
 指定年份时,汇总库仍覆盖全部年份:指定年份从 md 重建,其余年份从各自
 的逐年 jsonl 合并,不会因局部重建而丢失其他年份。指定的年份在题库中
-不存在(或含非数字参数)时直接报错退出,不写任何文件。
+不存在(或含非数字参数)时直接报错退出,不写任何文件。合并的逐年 jsonl
+若比其 md 旧(改过 md 忘了重建),同样报错退出,防止汇总库混入过期内容。
 
 输出:
     199管综真题_Markdown题库/{year}年/{year}年199真题_chunks.jsonl   (每年)
@@ -281,6 +282,12 @@ def main():
         else:
             if not per_year.exists():
                 print(f"[✘] {year}: 缺 {per_year.name},无法并入汇总库")
+                problems += 1
+                continue
+            md_path = d / f"{year}年199管综真题试卷.md"
+            if md_path.exists() and md_path.stat().st_mtime > per_year.stat().st_mtime:
+                print(f"[✘] {year}: {md_path.name} 比 {per_year.name} 新,"
+                      f"切分库可能过期,请先重建该年")
                 problems += 1
                 continue
             chunks = [json.loads(l) for l in
