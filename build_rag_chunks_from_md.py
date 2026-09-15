@@ -13,16 +13,22 @@
     python3 build_rag_chunks_from_md.py            # 全量重建
     python3 build_rag_chunks_from_md.py 2013 2018  # 只重建指定年份
 
+指定年份时,汇总库仍覆盖全部年份:指定年份从 md 重建,其余年份从各自
+的逐年 jsonl 合并,不会因局部重建而丢失其他年份。指定的年份在题库中
+不存在(或含非数字参数)时直接报错退出,不写任何文件。
+
 输出:
     199管综真题_Markdown题库/{year}年/{year}年199真题_chunks.jsonl   (每年)
     199管综真题_Markdown题库/199管综历年真题_全量RAG切分库.jsonl      (汇总)
     ./199管综历年真题_全量RAG切分库.jsonl                            (仓库根目录镜像,保持旧位置可用)
 
 校验:每年必须恰好 57 个 chunk;1-15/26-55 题必须有 A-E 五项;
-16-25 题 stem 必须含条件(1)(2)(全角或半角);题干为空或选项不齐会打印告警。
+16-25 题 stem 必须含条件(1)(2)(全角或半角);题干为空或选项不齐会打印告警;
+汇总库必须覆盖题库内全部年份,缺年份非 0 退出。
 """
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -200,43 +206,87 @@ def parse_year_md(md_path: Path):
     return chunks, warnings
 
 
+def atomic_write(path: Path, text: str):
+    """先写临时文件再原子替换,避免中途失败留下半截 jsonl/md。"""
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(text, encoding="utf-8")
+    os.replace(tmp, path)
+
+
+def parse_year_args(available):
+    """命令行年份参数:非数字或题库中不存在的年份直接报错退出。"""
+    args = sys.argv[1:]
+    bad = [a for a in args if not a.isdigit()]
+    if bad:
+        print(f"[✘] 非法年份参数: {bad}(应为 4 位年份数字)")
+        sys.exit(1)
+    only = [int(a) for a in args]
+    unknown = [y for y in only if y not in available]
+    if unknown:
+        print(f"[✘] 指定的年份在题库中不存在: {unknown}")
+        print(f"    题库现有年份: {sorted(available)}")
+        sys.exit(1)
+    return only
+
+
 def main():
-    only = [int(x) for x in sys.argv[1:]]
-    all_chunks, problems = [], 0
     year_dirs = sorted(OUTPUT_ROOT.glob("[0-9][0-9][0-9][0-9]年"))
-    if only:
-        year_dirs = [d for d in year_dirs if int(d.name.replace("年", "")) in only]
+    if not year_dirs:
+        print(f"[✘] {OUTPUT_ROOT} 下没有任何年份目录,拒绝写入汇总库")
+        sys.exit(1)
+    available = {int(d.name.replace("年", "")) for d in year_dirs}
+    only = parse_year_args(available)
+
+    all_chunks, problems = [], 0
     for d in year_dirs:
         year = int(d.name.replace("年", ""))
-        md_path = d / f"{year}年199管综真题试卷.md"
-        if not md_path.exists():
-            print(f"[✘] {year} 年缺少 {md_path.name},跳过")
-            problems += 1
-            continue
-        chunks, warns = parse_year_md(md_path)
-        out = d / f"{year}年199真题_chunks.jsonl"
-        with out.open("w", encoding="utf-8") as f:
-            for c in chunks:
-                f.write(json.dumps(c, ensure_ascii=False) + "\n")
-        all_chunks.extend(chunks)
-        status = "OK " if len(chunks) == 57 and not warns else "WARN"
-        print(f"[{status}] {year}: {len(chunks)} chunks -> {out}")
-        for w in warns:
-            print(f"       ! {w}")
-            problems += 1
-        if len(chunks) != 57:
-            problems += 1
+        per_year = d / f"{year}年199真题_chunks.jsonl"
+        if year in (only or available):
+            md_path = d / f"{year}年199管综真题试卷.md"
+            if not md_path.exists():
+                print(f"[✘] {year} 年缺少 {md_path.name},跳过")
+                problems += 1
+                continue
+            chunks, warns = parse_year_md(md_path)
+            atomic_write(per_year, "".join(
+                json.dumps(c, ensure_ascii=False) + "\n" for c in chunks))
+            all_chunks.extend(chunks)
+            status = "OK " if len(chunks) == 57 and not warns else "WARN"
+            print(f"[{status}] {year}: {len(chunks)} chunks -> {per_year.name}")
+            for w in warns:
+                print(f"       ! {w}")
+                problems += 1
+            if len(chunks) != 57:
+                problems += 1
+        else:
+            if not per_year.exists():
+                print(f"[✘] {year}: 缺 {per_year.name},无法并入汇总库")
+                problems += 1
+                continue
+            chunks = [json.loads(l) for l in
+                      per_year.read_text(encoding="utf-8").splitlines()
+                      if l.strip()]
+            all_chunks.extend(chunks)
 
-    total_path = OUTPUT_ROOT / TOTAL_JSONL_NAME
-    with total_path.open("w", encoding="utf-8") as f:
-        for c in all_chunks:
-            f.write(json.dumps(c, ensure_ascii=False) + "\n")
-    mirror = Path(TOTAL_JSONL_NAME)
-    mirror.write_text(total_path.read_text(encoding="utf-8"), encoding="utf-8")
+    # 汇总库必须覆盖题库内全部年份(局部重建不得缩小汇总范围)
+    got_years = sorted({c["year"] for c in all_chunks})
+    if got_years != sorted(available):
+        missing_years = sorted(available - set(got_years))
+        print(f"[✘] 汇总库缺少年份: {missing_years}")
+        problems += 1
 
-    print(f"\n共 {len(all_chunks)} 条切分({len(year_dirs)} 个年份)")
-    print(f"汇总库: {total_path}")
-    print(f"根目录镜像: {mirror}")
+    if not problems:
+        total_path = OUTPUT_ROOT / TOTAL_JSONL_NAME
+        text = "".join(json.dumps(c, ensure_ascii=False) + "\n"
+                       for c in all_chunks)
+        atomic_write(total_path, text)
+        mirror = Path(TOTAL_JSONL_NAME)
+        atomic_write(mirror, text)
+
+    print(f"\n共 {len(all_chunks)} 条切分({len(got_years)} 个年份)")
+    if not problems:
+        print(f"汇总库: {total_path}")
+        print(f"根目录镜像: {mirror}")
     if problems:
         print(f"⚠ 有 {problems} 处告警,见上方明细,请人工复核对应题目")
         sys.exit(1)
