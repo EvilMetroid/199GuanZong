@@ -29,7 +29,7 @@
 | 日期 | 批次 | accepted | needs_fix / blocked | 新问题 | review 文件 | GitHub commit/PR |
 |---|---|---:|---:|---|---|---|
 | 2026-10-20 | 仅建立审查框架、归档历史报告、990 题全数置 pending | 0 | 0（正式审核尚未开始） | 20 条旧线索待复核 | 暂无正式审查证据 | 参见 GitHub `audit/` 提交历史 |
-| 2026-10-20 | 2026-01—05（锁定源提交 `98e556d57315e37f3995e3b61c00bfc22cf5c02f`） | 5 | 0 | 0（旧线索 20 项继续待复核） | [2026-01-05.md](reviews/2026-01-05.md) | 提交完成后补记 GitHub commit SHA |
+| 2026-10-20 | 2026-01—05（锁定源提交 `98e556d57315e37f3995e3b61c00bfc22cf5c02f`） | 5 | 0 | 0（旧线索 20 项继续待复核） | [2026-01-05.md](reviews/2026-01-05.md) | `1bc97aa4a03ba1a484b4669e99cdc6be8e61c6d6` |
 
 ## 更新纪律
 
@@ -45,4 +45,4 @@
 - 审查锁定的题库源 commit：`98e556d57315e37f3995e3b61c00bfc22cf5c02f`。本批题库文件和 PNG 均未更改。
 - 已扫描 18 个年度 ledger：每年 55 道、题号无重复，共 990；累计 `accepted 5 / pending 985 / needs_fix 0 / blocked 0 / in_review 0`。图像核验、独立证明、原解析审核各为 **5**，并非继承旧计数。
 - 本批没有新问题 ID；原有 20 项仍为 `legacy_unverified`。下一批：**2026-06—10**。
-- 本批 GitHub 提交校验码：待提交完成后补记到批次日志；本批证据以 GitHub 仓库中的实际提交为准。
+- 本批 GitHub 提交校验码：`1bc97aa4a03ba1a484b4669e99cdc6be8e61c6d6`（[本批审查提交](https://github.com/EvilMetroid/199GuanZong/commit/1bc97aa4a03ba1a484b4669e99cdc6be8e61c6d6)）；本批证据以 GitHub 仓库中的实际提交为准。
