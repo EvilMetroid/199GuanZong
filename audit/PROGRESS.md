@@ -61,7 +61,7 @@
 
 | 2026-10-20 | 2025-16—20（输入 `b165c56aa36fd5ad2713445e7a3f5ee14ab34cc7`；v1.2） | 1 | 4 needs_fix | 确认I13，新增I62—65 | [2025-16-20.md](reviews/2025-16-20.md) | [7807b4e99ca8540b27c241935f0d082131b5b95a](https://github.com/EvilMetroid/199GuanZong/commit/7807b4e99ca8540b27c241935f0d082131b5b95a) |
 
-| 2026-10-20 | 2025-21—25（输入 `2cbaccccb9c730395a73edc5ae15d7e0652a9de5`；v1.2） | 2 | 3 needs_fix | 确认I18、驳回I19，新增I66—67 | [2025-21-25.md](reviews/2025-21-25.md) | BATCH_EVIDENCE_SHA |
+| 2026-10-20 | 2025-21—25（输入 `2cbaccccb9c730395a73edc5ae15d7e0652a9de5`；v1.2） | 2 | 3 needs_fix | 确认I18、驳回I19，新增I66—67 | [2025-21-25.md](reviews/2025-21-25.md) | [3291722070148579691e3d31c38b1c1434953439](https://github.com/EvilMetroid/199GuanZong/commit/3291722070148579691e3d31c38b1c1434953439) |
 
 ## 更新纪律
 
@@ -223,4 +223,4 @@
 - 18年度各55共990无漏无重；2026 accepted26/needs_fix29，2025 accepted12/needs_fix13/pending30，其他16年各pending55。累计初审80/990（8.08%）、accepted38、needs_fix42、pending910、blocked0、in_review0；未验收952。
 - A门实看80（matched58/source_ambiguous20/mismatch2）；B门proven61/disputed19；D门pass52/flawed21/incomplete7。51项confirmed_open、13条legacy_unverified、3项rejected。
 - 下一初审断点2025-26（建议26—30）；修复断点2026-06/I21（42题积压）。完成本批GitHub提交验证后停止。
-- 本批证据提交：BATCH_EVIDENCE_SHA；最终main SHA在远程验证后报告。
+- 本批证据提交：[3291722070148579691e3d31c38b1c1434953439](https://github.com/EvilMetroid/199GuanZong/commit/3291722070148579691e3d31c38b1c1434953439)；最终main SHA在远程验证后报告。
