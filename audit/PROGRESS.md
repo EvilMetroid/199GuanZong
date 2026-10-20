@@ -33,7 +33,7 @@
 
 | 2026-10-20 | 2026-06—10（锁定源提交 `08a407d7cd30e82828b9bcba915e34b0692372bd`） | 2 | 3 needs_fix | 新增 I21、I22；确认历史 I11 | [2026-06-10.md](reviews/2026-06-10.md) | `ec65dab5b2bbc52265f494ac1c3125c4bee75449` |
 
-| 2026-10-20 | 2026-11—15（输入 commit `1c8f21d35d7013a59a801a5ed6164eedc6bc53cd`，规程v1.2） | 3 | 2 needs_fix | 新增 I23、I24 | [2026-11-15.md](reviews/2026-11-15.md) | 见本次提交（稍后记录实际 SHA） |
+| 2026-10-20 | 2026-11—15（输入 commit `1c8f21d35d7013a59a801a5ed6164eedc6bc53cd`，规程v1.2） | 3 | 2 needs_fix | 新增 I23、I24 | [2026-11-15.md](reviews/2026-11-15.md) | `a6cf62015cd8db9d19dc67e71726d526f4ff6751` |
 
 ## 更新纪律
 
@@ -66,4 +66,4 @@
 - 全库根据台账核算：`accepted 10 + needs_fix 5 + pending 975 = 990`；**初审覆盖15/990**，尚未开始审查的975；正式未 accepted=980，其中修复积压5。
 - A门图像实际查看15/990；B门可独立证明14/990（第08题题干争议）；D门已审15/990（08 flawed，其余pass）；以上分别计数，不通过 A/B/D 数字推算 accepted。
 - 初审队列首题：**2026-16**，建议 2026-16—20；修复队列首题：**2026-06 / I21**，此外2026-08 I11、10 I22、14 I23、15 I24尚未解决。
-- GitHub 提交SHA：提交审查证据后补入此日志。修复涉及源题时仍须用户批准，不能把 `needs_fix` 自动转为 `accepted`。
+- GitHub 提交SHA：`a6cf62015cd8db9d19dc67e71726d526f4ff6751`（[审查提交](https://github.com/EvilMetroid/199GuanZong/commit/a6cf62015cd8db9d19dc67e71726d526f4ff6751)）。修复涉及源题时仍须用户批准，不能把 `needs_fix` 自动转为 `accepted`。
