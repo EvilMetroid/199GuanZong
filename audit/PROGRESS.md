@@ -53,7 +53,7 @@
 
 | 2026-10-20 | 2026-52—55（末两组共享题干；输入 675e5cd2f2665f074f74f4a9136444916bdc1916；v1.2） | 0 | 4 needs_fix | 新增 I50—55（原图缺共享组、解析问题及55图片B缺行） | [2026-52-55.md](reviews/2026-52-55.md) | [a8cc9201d1a6816e51cee27aa383b269f48948a0](https://github.com/EvilMetroid/199GuanZong/commit/a8cc9201d1a6816e51cee27aa383b269f48948a0) |
 
-| 2026-10-20 | 2025-01—05（输入 `c81ce3757b12e84ec3bbe4f75102d04dd3c4d82c`；v1.2） | 5 | 0 | 无新增问题 | [2025-01-05.md](reviews/2025-01-05.md) | 本批证据提交（见随后回填的真实GitHub SHA） |
+| 2026-10-20 | 2025-01—05（输入 `c81ce3757b12e84ec3bbe4f75102d04dd3c4d82c`；v1.2） | 5 | 0 | 无新增问题 | [2025-01-05.md](reviews/2025-01-05.md) | [defb328a6b74e12c68220d6777de957de38c429c](https://github.com/EvilMetroid/199GuanZong/commit/defb328a6b74e12c68220d6777de957de38c429c) |
 
 ## 更新纪律
 
@@ -174,4 +174,4 @@
 - A门实看60（matched39/source_ambiguous19/mismatch2）；B门proven43/disputed17；D门审计60（pass43/flawed14/incomplete3）。accepted均有可访问逐题四门证据。
 - 已确认未解决issue仍36项（I11、I21—55）；18条legacy_unverified仍待复核、I20 rejected。
 - 下一初审断点2025-06（建议06—10）；下一修复断点2026-06/I21，修复积压29题。本轮提交后停止。
-- 本批证据提交：本批证据提交（见随后回填的真实GitHub SHA）；该SHA包含完整四门报告、台账及统计。此后仅回填本行和批次日志的真实提交链接；最终main SHA由远程核验后在本轮答复报告。
+- 本批证据提交：[defb328a6b74e12c68220d6777de957de38c429c](https://github.com/EvilMetroid/199GuanZong/commit/defb328a6b74e12c68220d6777de957de38c429c)；该SHA包含完整四门报告、台账及统计。此后仅回填本行和批次日志的真实提交链接；最终main SHA由远程核验后在本轮答复报告。
