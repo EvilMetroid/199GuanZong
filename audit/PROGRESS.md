@@ -63,7 +63,7 @@
 
 | 2026-10-20 | 2025-21—25（输入 `2cbaccccb9c730395a73edc5ae15d7e0652a9de5`；v1.2） | 2 | 3 needs_fix | 确认I18、驳回I19，新增I66—67 | [2025-21-25.md](reviews/2025-21-25.md) | [3291722070148579691e3d31c38b1c1434953439](https://github.com/EvilMetroid/199GuanZong/commit/3291722070148579691e3d31c38b1c1434953439) |
 
-| 2026-10-20 | 2025-26—30（输入 `ba13dbddad0cd7a01548793da4699098b941a446`；v1.2） | 1 | 4 needs_fix | 新增I68—74 | [2025-26-30.md](reviews/2025-26-30.md) | BATCH_EVIDENCE_SHA |
+| 2026-10-20 | 2025-26—30（输入 `ba13dbddad0cd7a01548793da4699098b941a446`；v1.2） | 1 | 4 needs_fix | 新增I68—74 | [2025-26-30.md](reviews/2025-26-30.md) | [307237cebf4b4610895f8a800f47254f94bc75a6](https://github.com/EvilMetroid/199GuanZong/commit/307237cebf4b4610895f8a800f47254f94bc75a6) |
 
 ## 更新纪律
 
@@ -235,4 +235,4 @@
 - 18年度各55无漏无重：2026 accepted26/needs_fix29，2025 accepted13/needs_fix17/pending25，其他16年各pending55。累计初审85/990（8.59%）、accepted39、needs_fix46、pending905、blocked0、in_review0；未验收951。
 - A门实看85（matched61/source_ambiguous21/mismatch3）；B门proven66/disputed19；D门pass54/flawed24/incomplete7。27按最佳项比较仍选C，但不能断言风险随龄增加即活动无相对益处。
 - 58项confirmed_open、13条legacy_unverified、3项rejected；修复积压46题。下一初审2025-31（建议31—35）；修复首题2026-06/I21。
-- 本批证据提交：BATCH_EVIDENCE_SHA；远程main验证后停止，最终SHA在本轮答复报告。
+- 本批证据提交：[307237cebf4b4610895f8a800f47254f94bc75a6](https://github.com/EvilMetroid/199GuanZong/commit/307237cebf4b4610895f8a800f47254f94bc75a6)；远程main验证后停止，最终SHA在本轮答复报告。
