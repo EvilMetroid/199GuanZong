@@ -45,7 +45,7 @@
 
 | 2026-10-20 | 2026-36—40（锁定输入 d3de42bfd104433759a3b44124088dc94a479467；v1.2初审） | 1 | 4 needs_fix | 新增 I34— I38 | [2026-36-40.md](reviews/2026-36-40.md) | [0aa0d8eac6d8a8b7abd7b942c9c0372a0d3724d2](https://github.com/EvilMetroid/199GuanZong/commit/0aa0d8eac6d8a8b7abd7b942c9c0372a0d3724d2) |
 
-| 2026-10-20 | 2026-41—45（输入 51778403112cf9694173857d5f427fc756f149ae、v1.2初审） | 2 | 3 needs_fix | 新增 I39—42 | [2026-41-45.md](reviews/2026-41-45.md) | [BATCH_SHA_PENDING] |
+| 2026-10-20 | 2026-41—45（输入 51778403112cf9694173857d5f427fc756f149ae、v1.2初审） | 2 | 3 needs_fix | 新增 I39—42 | [2026-41-45.md](reviews/2026-41-45.md) | [628e65ac6719e74a6a4b30bb57ec1f6044c28830](https://github.com/EvilMetroid/199GuanZong/commit/628e65ac6719e74a6a4b30bb57ec1f6044c28830) |
 
 ## 更新纪律
 
@@ -136,4 +136,4 @@
 - 台账总核算：2026年 accepted26、needs_fix19、pending10；其余17年均55 pending；全库 **accepted26 + needs_fix19 + pending945 = 990**。初审累计 **45/990**；未 accepted964（修复队列19、尚未初审945）。
 - 四门量化：原图实际看45（matched34/source_ambiguous9/mismatch2）；独立 proven38/disputed7（08、21、26、35、38、40、43）；原解析审计45（pass34/flawed9/incomplete2）。正式未解决**23个独立 issue（I11、I21—42）**，对应19道待修题；18条 legacy_unverified 待复核、I20 rejected。
 - 下一**初审队列**：**2026-46**，推荐46—50；注意46—47与48—49分别含跨题共享题干，需要在下一批纳入该共用材料。下一**修复队列**：**2026-06 / I21**。未修改任何原题、答案、PNG、JSONL；不得把 needs_fix 重复计作初审名额。
-- 审查证据首次提交：[BATCH_SHA_PENDING]，完成提交及验证后回填真实 SHA。
+- 审查证据首次提交：[628e65ac6719e74a6a4b30bb57ec1f6044c28830](https://github.com/EvilMetroid/199GuanZong/commit/628e65ac6719e74a6a4b30bb57ec1f6044c28830)，完成提交及验证后回填真实 SHA。
