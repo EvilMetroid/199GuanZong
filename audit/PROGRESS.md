@@ -41,7 +41,7 @@
 
 | 2026-10-20 | 2026-26—30（输入 7ce801ee720aec633b60f570454083e810329537；v1.2） | 3 | 2 needs_fix | 新增 I27、I28、I29 | [2026-26-30.md](reviews/2026-26-30.md) | [e8687ae3d3c31f567da7e25fbcdf567ae77f1fca](https://github.com/EvilMetroid/199GuanZong/commit/e8687ae3d3c31f567da7e25fbcdf567ae77f1fca) |
 
-| 2026-10-20 | 2026-31—35（输入 `61e07b0bb69bf78032f42245cd7ffe2828eba5e7`，v1.2） | 2 | 3 needs_fix | 新增 I30— I33 | [2026-31-35.md](reviews/2026-31-35.md) | [BATCH_SHA_PENDING] |
+| 2026-10-20 | 2026-31—35（输入 `61e07b0bb69bf78032f42245cd7ffe2828eba5e7`，v1.2） | 2 | 3 needs_fix | 新增 I30— I33 | [2026-31-35.md](reviews/2026-31-35.md) | [c6fbb702eb475bf1816e2b688267c992df9ecf3b](https://github.com/EvilMetroid/199GuanZong/commit/c6fbb702eb475bf1816e2b688267c992df9ecf3b) |
 
 ## 更新纪律
 
@@ -112,4 +112,4 @@
 - 台账核算：2026年 accepted23、needs_fix12、pending20，其他17年各55 pending；总数 **accepted23 + needs_fix12 + pending955 = 990**；**初审覆盖35/990**，未正式验收967（修复队列12，尚未初审955）。
 - 图像门已实看35（matched27/source_ambiguous6/mismatch2）；独立证明 proven31/disputed4（08、21、26、35）；原解析审计35（pass28/flawed5/incomplete2）。已确认未解决问题 **14 条**（I11、I21—33），18条旧线索待核，I20 rejected。
 - 下一**初审队列**：2026-36（建议36—40）；下一**修复队列**：2026-06 / I21。不得未经授权修复源文件或将 needs_fix 计为 accepted。
-- 首次 GitHub 审查提交：**[BATCH_SHA_PENDING]**；完成提交后更新真实提交 SHA。
+- 首次 GitHub 审查提交：**[c6fbb702eb475bf1816e2b688267c992df9ecf3b](https://github.com/EvilMetroid/199GuanZong/commit/c6fbb702eb475bf1816e2b688267c992df9ecf3b)**；完成提交后更新真实提交 SHA。
