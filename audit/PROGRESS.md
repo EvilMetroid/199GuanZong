@@ -39,7 +39,7 @@
 
 | 2026-10-20 | 2026-21—25（锁定输入 648d3c193121cbc1da6399751e04ccd796429b3c；v1.2 初审） | 4 | 1 needs_fix | 新增 I26 | [2026-21-25.md](reviews/2026-21-25.md) | [b47574529f20937e87553633aeeb3a7a5948b9a6](https://github.com/EvilMetroid/199GuanZong/commit/b47574529f20937e87553633aeeb3a7a5948b9a6) |
 
-| 2026-10-20 | 2026-26—30（输入 7ce801ee720aec633b60f570454083e810329537；v1.2） | 3 | 2 needs_fix | 新增 I27、I28、I29 | [2026-26-30.md](reviews/2026-26-30.md) | [BATCH_SHA_PENDING] |
+| 2026-10-20 | 2026-26—30（输入 7ce801ee720aec633b60f570454083e810329537；v1.2） | 3 | 2 needs_fix | 新增 I27、I28、I29 | [2026-26-30.md](reviews/2026-26-30.md) | [e8687ae3d3c31f567da7e25fbcdf567ae77f1fca](https://github.com/EvilMetroid/199GuanZong/commit/e8687ae3d3c31f567da7e25fbcdf567ae77f1fca) |
 
 ## 更新纪律
 
@@ -95,9 +95,9 @@
 
 ## 第六批（2026-10-20）：2026-26—30 初审与双队列断点
 
-- 锁定输入 commit \`7ce801ee720aec633b60f570454083e810329537\`，规程 v1.2；[五题审查全文](reviews/2026-26-30.md)，五张 PNG 均实际打开，四门分别留证。题号 26—30 不依赖历史聊天证明；**题目、答案解析、PNG 未修改**。
+- 锁定输入 commit `7ce801ee720aec633b60f570454083e810329537`，规程 v1.2；[五题审查全文](reviews/2026-26-30.md)，五张 PNG 均实际打开，四门分别留证。题号 26—30 不依赖历史聊天证明；**题目、答案解析、PNG 未修改**。
 - 本批 **accepted=3**（27、28、29），**needs_fix=2**（26：I27 原 PNG 缺 D 选项及 I29 旧解析不当归类；30：I28 旧解析比较省略）。第26题按完整 Markdown 选项独立 B，但 PNG 版本不能确认 D；第30题独立 C，旧解析 incomplete。
 - 台账核算：2026年 accepted21、needs_fix9、pending25；其他17年各55 pending。全库 **accepted21 + needs_fix9 + pending960 = 990**，初审已覆盖 **30/990**，未正式 accepted **969**（已审待修9、尚未初审960）。
 - 图像门：实际打开30，matched23，source_ambiguous5，mismatch2；独立证明 proven27、disputed3（2026-08、21、26）；原解析 D 门 pass26、flawed2、incomplete2。已确认未解决独立问题10（I11、I21—29），对应待修9道；另外 18 个历史线索待核，I20 rejected。
 - **下一初审断点2026-31（建议31—35）；修复队列首题2026-06/I21。** 不重复初审已核验完四门但待修的26/30，也不自动修复源码。
-- 审查首次 GitHub 提交：**[BATCH_SHA_PENDING]**，提交完成后追加真实 SHA 核验。
+- 审查首次 GitHub 提交：**[e8687ae3d3c31f567da7e25fbcdf567ae77f1fca](https://github.com/EvilMetroid/199GuanZong/commit/e8687ae3d3c31f567da7e25fbcdf567ae77f1fca)**，提交完成后追加真实 SHA 核验。
