@@ -49,7 +49,7 @@
 
 | 2026-10-20 | 2026-46—51（50—51跨界共享组，输入 18333dca46685fc890877817474898bc6c20e644） | 0 | 6 needs_fix | I43—49：三组缺共享原图，47/48/49解析错，51原PNG答案E错 | [2026-46-51.md](reviews/2026-46-51.md) | [053d75c4dcc3365002e18380866becd7395bacad](https://github.com/EvilMetroid/199GuanZong/commit/053d75c4dcc3365002e18380866becd7395bacad) |
 
-| 2026-10-20 | 2026-52—55（末两组共享题干；输入 675e5cd2f2665f074f74f4a9136444916bdc1916；v1.2） | 0 | 4 needs_fix | 新增 I50—55（原图缺共享组、解析问题及55图片B缺行） | [2026-52-55.md](reviews/2026-52-55.md) | [BATCH_SHA_PENDING] |
+| 2026-10-20 | 2026-52—55（末两组共享题干；输入 675e5cd2f2665f074f74f4a9136444916bdc1916；v1.2） | 0 | 4 needs_fix | 新增 I50—55（原图缺共享组、解析问题及55图片B缺行） | [2026-52-55.md](reviews/2026-52-55.md) | [a8cc9201d1a6816e51cee27aa383b269f48948a0](https://github.com/EvilMetroid/199GuanZong/commit/a8cc9201d1a6816e51cee27aa383b269f48948a0) |
 
 ## 更新纪律
 
@@ -160,4 +160,4 @@
 - 台账核算：2026 accepted26、needs_fix29、pending0；其他17年度各55 pending；**accepted26 + needs_fix29 + pending935 = 990**。正式初审覆盖 **55/990**，**2026年55题全部已初审，但并非全部验收**；未正式验收964（修复队列29、未初审935）。
 - 累计 A门实际打开55张(matched34/source_ambiguous19/mismatch2)；B门 proven38/disputed17（本批MD均有独立推导，但原共享图条件未核）；D门审计55(pass38/flawed14/incomplete3)。确认未解决 issue **36项**（I11、I21—55），对应29题；其他18条legacy_unverified待核，I20 rejected。
 - 下一**初审队列断点2025-01**（建议2025-01—05）；下一**修复队列断点2026-06 / I21**。双队列独立，未授权不实施题库或原图修复。
-- 本批第一次提交证据 SHA：[BATCH_SHA_PENDING]，提交后回填实际SHA链接。
+- 本批第一次提交证据 SHA：[a8cc9201d1a6816e51cee27aa383b269f48948a0](https://github.com/EvilMetroid/199GuanZong/commit/a8cc9201d1a6816e51cee27aa383b269f48948a0)，提交后回填实际SHA链接。
