@@ -43,7 +43,7 @@
 
 | 2026-10-20 | 2026-31—35（输入 `61e07b0bb69bf78032f42245cd7ffe2828eba5e7`，v1.2） | 2 | 3 needs_fix | 新增 I30— I33 | [2026-31-35.md](reviews/2026-31-35.md) | [c6fbb702eb475bf1816e2b688267c992df9ecf3b](https://github.com/EvilMetroid/199GuanZong/commit/c6fbb702eb475bf1816e2b688267c992df9ecf3b) |
 
-| 2026-10-20 | 2026-36—40（锁定输入 d3de42bfd104433759a3b44124088dc94a479467；v1.2初审） | 1 | 4 needs_fix | 新增 I34— I38 | [2026-36-40.md](reviews/2026-36-40.md) | [BATCH_SHA_PENDING] |
+| 2026-10-20 | 2026-36—40（锁定输入 d3de42bfd104433759a3b44124088dc94a479467；v1.2初审） | 1 | 4 needs_fix | 新增 I34— I38 | [2026-36-40.md](reviews/2026-36-40.md) | [0aa0d8eac6d8a8b7abd7b942c9c0372a0d3724d2](https://github.com/EvilMetroid/199GuanZong/commit/0aa0d8eac6d8a8b7abd7b942c9c0372a0d3724d2) |
 
 ## 更新纪律
 
@@ -124,4 +124,4 @@
 - 全库 18年度 ledger 校验：2026年 accepted24/needs_fix16/pending15，其余17年各55 pending；**accepted24 + needs_fix16 + pending950 = 990**。初审覆盖 **40/990**，未正式验收966（修复积压16、尚未初审950）。
 - A门实看 PNG40（matched30/source_ambiguous8/mismatch2），独立证明 proven34/disputed6（08、21、26、35、38、40），D门审计40（pass32/flawed6/incomplete2）。当前正式确认待修 **19个 issue（I11、I21—38）**，其余18条历史线索仍未核实，I20 rejected。
 - 下一**初审队列**：2026-41（建议 41—45）；下一**修复队列**：2026-06 / I21（16题积压）。不得重复初审旧 needs_fix 题。
-- 本批证据首次提交 SHA：[BATCH_SHA_PENDING]，提交后校验并替换为真实链接。
+- 本批证据首次提交 SHA：[0aa0d8eac6d8a8b7abd7b942c9c0372a0d3724d2](https://github.com/EvilMetroid/199GuanZong/commit/0aa0d8eac6d8a8b7abd7b942c9c0372a0d3724d2)，提交后校验并替换为真实链接。
