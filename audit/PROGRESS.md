@@ -31,7 +31,7 @@
 | 2026-10-20 | 仅建立审查框架、归档历史报告、990 题全数置 pending | 0 | 0（正式审核尚未开始） | 20 条旧线索待复核 | 暂无正式审查证据 | 参见 GitHub `audit/` 提交历史 |
 | 2026-10-20 | 2026-01—05（锁定源提交 `98e556d57315e37f3995e3b61c00bfc22cf5c02f`） | 5 | 0 | 0（旧线索 20 项继续待复核） | [2026-01-05.md](reviews/2026-01-05.md) | `1bc97aa4a03ba1a484b4669e99cdc6be8e61c6d6` |
 
-| 2026-10-20 | 2026-06—10（锁定源提交 `08a407d7cd30e82828b9bcba915e34b0692372bd`） | 2 | 3 needs_fix | 新增 I21、I22；确认历史 I11 | [2026-06-10.md](reviews/2026-06-10.md) | 本批 GitHub 提交见下方追踪记录 |
+| 2026-10-20 | 2026-06—10（锁定源提交 `08a407d7cd30e82828b9bcba915e34b0692372bd`） | 2 | 3 needs_fix | 新增 I21、I22；确认历史 I11 | [2026-06-10.md](reviews/2026-06-10.md) | `ec65dab5b2bbc52265f494ac1c3125c4bee75449` |
 
 ## 更新纪律
 
@@ -55,4 +55,4 @@
 - 本批 reviewed 5：accepted 2（07、09）；needs_fix 3（06 I21、08 I11、10 I22）。图像核验 5，独立 proved 4、disputed 1，解析审计 5（pass4、flawed1）。
 - 2026 年台账：accepted7、needs_fix3、pending45；其他17年仍各55 pending。**全库 accepted7 / needs_fix3 / pending980 = 990**；未 accepted 为983。全部依照台账各字段单独计数。
 - 未完成最小起点 **2026-06**（图源待修），下一首次审查 pending 起点 **2026-11**。未经用户授权不更改源题、解析或图像。
-- 本批 GitHub 审查提交：请查阅 [逐题报告](reviews/2026-06-10.md) 的 commit 历史；提交后补记 SHA。
+- 本批 GitHub 审查提交：请查阅 [逐题报告](reviews/2026-06-10.md) 的 commit 历史；`ec65dab5b2bbc52265f494ac1c3125c4bee75449`。
