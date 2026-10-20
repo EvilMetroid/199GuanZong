@@ -35,7 +35,7 @@
 
 | 2026-10-20 | 2026-11—15（输入 commit `1c8f21d35d7013a59a801a5ed6164eedc6bc53cd`，规程v1.2） | 3 | 2 needs_fix | 新增 I23、I24 | [2026-11-15.md](reviews/2026-11-15.md) | `a6cf62015cd8db9d19dc67e71726d526f4ff6751` |
 
-| 2026-10-20 | 2026-16—20（输入 commit `4e958b5778781db123379afeecd902530c15e943`；v1.2初审） | 4 | 1 needs_fix | 新增 I25；历史 I20 rejected | [2026-16-20.md](reviews/2026-16-20.md) | 稍后写入实际审查提交SHA |
+| 2026-10-20 | 2026-16—20（输入 commit `4e958b5778781db123379afeecd902530c15e943`；v1.2初审） | 4 | 1 needs_fix | 新增 I25；历史 I20 rejected | [2026-16-20.md](reviews/2026-16-20.md) | `dd8319f3f3ac8438b5624c81927f61f97d56f420` |
 
 ## 更新纪律
 
@@ -76,4 +76,4 @@
 - 本批原图真实打开5张，独立证明5，解析审计5（pass4，incomplete1）。**累计初审覆盖20/990**，正式 accepted14、修复积压6、未初审 pending970。计数核对：`14+6+970=990`，其中2026年 `accepted14/needs_fix6/pending35`，其他17年各55 pending。
 - 累计 A 门实际看图20，B 门 `proven=19`、`disputed=1`（08），D 门已审20（pass18、flawed1、incomplete1）。不能用前三者推算 accepted。
 - **下一个初审断点：2026-21（推荐2026-21—25）**；修复队列首题 **2026-06（I21）**，总共6道需要修复/证据补全，未自动转 accepted。
-- 提交记录：完成审查提交后将记录准确 commit SHA。
+- 提交记录：`dd8319f3f3ac8438b5624c81927f61f97d56f420`（[审查提交](https://github.com/EvilMetroid/199GuanZong/commit/dd8319f3f3ac8438b5624c81927f61f97d56f420)）。
