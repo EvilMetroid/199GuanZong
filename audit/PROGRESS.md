@@ -9,20 +9,20 @@
 | 指标 | 正式进度 | 说明 |
 |---|---:|---|
 | 总题量 | 990 | 2009—2026，每年 01—55 |
-| 正式 accepted | **44/990** | 2026年26题、2025年18题 |
-| 初审覆盖 | **100/990（10.10%）** | 2026全55题及2025-01—45；含56题已审待修 |
-| 图像实际核验 | **100/990题** | matched73、source_ambiguous22、mismatch5；本批5张实际打开 |
-| 独立证明并存档 | **78/990 proven** | 另22 disputed；43保留源名称对应前提 |
-| 原解析逐步审计 | **100/990** | pass60、flawed31、incomplete9 |
-| 有问题或阻断题 | **56（已审待修）** | needs_fix56、blocked0；73项confirmed_open及1项disputed，另9旧线索待核 |
-| 未初审 | **890/990** | pending890、in_review0；2025-46起 |
-| 正式未验收 | **946/990** | needs_fix56+pending890；44+56+890=990 |
+| 正式 accepted | **46/990** | 2026年26题、2025年20题 |
+| 初审覆盖 | **106/990（10.71%）** | 2026全55题及2025-01—51；含60题已审待修 |
+| 图像实际核验 | **106/990题** | matched78、source_ambiguous22、mismatch6；本批6题及共享图共7PNG实际打开 |
+| 独立证明并存档 | **83/990 proven** | 另23 disputed；49区分MD模型D与PNG字面无解 |
+| 原解析逐步审计 | **106/990** | pass62、flawed34、incomplete10 |
+| 有问题或阻断题 | **60（已审待修）** | needs_fix60、blocked0；79项confirmed_open及1项disputed，另6旧线索待核 |
+| 未初审 | **884/990** | pending884、in_review0；2025-52起 |
+| 正式未验收 | **944/990** | needs_fix60+pending884；46+60+884=990 |
 
 **历史信息（不可计入上表）**：旧阶段性报告曾声称 65 道题有推导、26 张 PNG 已读、20 项问题/改进线索。这些材料可以帮助决定审查顺序，但需要按照新规程重新复算和存证。
 
 ## 建议起点
 
-- **v1.2 双队列：下一批初审 2025-46—50，起点2025-46；修复队列最早为2026-06/I21**。已审待修题仍计入积压，不得重复初审或自动验收。
+- **v1.2 双队列：下一批初审 2025-52—55，起点2025-52（两共享组整体4题）；修复队列最早为2026-06/I21**。已审待修题仍计入积压，不得重复初审或自动验收。
 - 每批 5—10 题；一个题组跨边界时允许整组前移，但不能漏记、重复计入。
 - GitHub 原始内容变动时，请记录每批所用源文件 SHA；本套历史审查准备时读取的旧 main 树 SHA 为 `3bcabc9647772c73868c03b86532aa194087d0e4`（**这是树 SHA，不是 commit SHA**），不要将它当作当前提交哈希。最新 batch 应从 GitHub 重新查询真实 commit SHA。
 
@@ -70,6 +70,8 @@
 | 2026-10-20 | 2025-36—40（输入 `1d320aaf95b804472bb84ac7664fdad35d7b8b07`；v1.2，共享组整体） | 2 | 3 needs_fix | 确认I01，新增I82及争议I83 | [2025-36-40.md](reviews/2025-36-40.md) | [1af8bc1fe042e832a427e863f21924914b01286b](https://github.com/EvilMetroid/199GuanZong/commit/1af8bc1fe042e832a427e863f21924914b01286b) |
 
 | 2026-10-20 | 2025-41—45（输入 `a030b00978cfa048443517a9b8d85260e6b5e502`；v1.2） | 1 | 4 needs_fix | 确认I04/I06/I14，新增I84—86 | [2025-41-45.md](reviews/2025-41-45.md) | [4d4fae29ed6df2cd03a84abeead2cba7a601793c](https://github.com/EvilMetroid/199GuanZong/commit/4d4fae29ed6df2cd03a84abeead2cba7a601793c) |
+
+| 2026-10-21 | 2025-46—51（输入 `5a1a12305a0f43db4a921204d44f9569104d08eb`；v1.2，50—51共享组整体） | 2 | 4 needs_fix | 确认I05/I15/I16，新增I87—89 | [2025-46-51.md](reviews/2025-46-51.md) | BATCH_EVIDENCE_SHA |
 
 ## 更新纪律
 
@@ -272,3 +274,13 @@
 - A门100题（matched73/source_ambiguous22/mismatch5）；B门proven78/disputed22；D门pass60/flawed31/incomplete9。73项confirmed_open、1项disputed，确认/争议未解决74项；legacy_unverified9项、rejected3项。
 - 下一初审2025-46（建议46—50，须按实际共享组整体安排）；修复首题2026-06/I21（56题积压）。本批提交验证后停止。
 - 本批证据提交：[4d4fae29ed6df2cd03a84abeead2cba7a601793c](https://github.com/EvilMetroid/199GuanZong/commit/4d4fae29ed6df2cd03a84abeead2cba7a601793c)；最终main SHA由远程验证后报告。
+
+
+## 第二十一批（2026-10-21）：2025-46—51正式交接
+
+- 锁定输入commit `5a1a12305a0f43db4a921204d44f9569104d08eb`，刷新main四份权威文件。初审46—51六题，其中50—51完整共享；实际开六单题PNG及共享PNG共7张。两只读子审负责46—47、48—49，主审共享组及全部复核；[完整四门证据](reviews/2025-46-51.md)，仅写audit。
+- 本批accepted2（48B、50B）、needs_fix4（46A姓名、47B错误推论及姓名、49按MD为D但PNG字面无解且解析缺步、51D姓名）、blocked0。确认I05 high/I15 low/I16 low，新增I87 low、I88 critical、I89 medium。
+- 18年各55题无漏无重：2026 accepted26/needs_fix29；2025 accepted20/needs_fix31/pending4；其他16年各pending55。累计初审106/990（10.71%）、accepted46、needs_fix60、pending884、blocked0、in_review0；正式未验收944。
+- A门matched78/source_ambiguous22/mismatch6；B门proven83/disputed23；D门pass62/flawed34/incomplete10。confirmed_open79、disputed1（I83），确认/争议未解决80；legacy_unverified6、rejected3。
+- 下一初审2025-52，下一批建议52—55两个共享组共4题；修复队列首题2026-06/I21（60题积压，80项确认/争议未解决）。本批提交并验证后停止。
+- 本批证据提交：BATCH_EVIDENCE_SHA；最终main SHA由远程验证后报告。
